@@ -7,7 +7,8 @@ int main()
 {
     int size;
     cin>>size;
-    int arr[];
+    int arr[size];
+    
     int head = 30;
 
     int seek[5];
