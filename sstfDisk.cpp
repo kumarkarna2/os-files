@@ -1,28 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// seek time = track searching time + avg rotational latency + reed/write time
-
 int main()
 {
     int size;
+    cout << "Enter # of files\n";
     cin >> size;
-    int process[size];
+
+    int files[size];
+    cout<<"Enter location of files\n";
+    for (int i = 0; i < size; i++)
+    {
+        cin>>files[i];
+    }
 
     int head;
     cout << "Enter current head location\n";
     cin >> head;
 
     int seek[size];
-    for (int i = 0; i < 5; i++)
+
+    // sorting in increasing order of location
+    sort(files, files + size);
+    for (int i = 0; i < size; i++)
     {
-        seek[i] = abs(process[i] - head);
-        head = process[i];
+        seek[i] = abs(files[i] - head);
+        head = files[i];
     }
 
     // seek time
     int sum = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < size; i++)
     {
         cout << seek[i] << " ";
         sum += seek[i];
