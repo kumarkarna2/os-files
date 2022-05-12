@@ -48,6 +48,6 @@ int main()
     cout << "\n";
 
     // avg
-    cout << "Avg seek time = " << (double)sum << "\n";
+    cout << "Avg seek time = " << (double)sum / size << "\n";
     return 0;
 }
