@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
     int size;
+    cout << "Enter # of files\n";
     cin >> size;
     int process[size];
 
@@ -13,16 +14,22 @@ int main()
     cout << "Enter current head location\n";
     cin >> head;
 
+    cout << "Enter location of files\n";
+    for (int i = 0; i < size; i++)
+    {
+        cin >> process[i];
+    }
+
+    // seek time
     int seek[size];
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < size; i++)
     {
         seek[i] = abs(process[i] - head);
         head = process[i];
     }
 
-    // seek time
     int sum = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < size; i++)
     {
         cout << seek[i] << " ";
         sum += seek[i];
@@ -30,6 +37,6 @@ int main()
     cout << "\n";
 
     // avg
-    cout << "Avg seek time = " << sum / 5 << "\n";
+    cout << "Avg seek time = " << (double)sum / size << "\n";
     return 0;
 }
